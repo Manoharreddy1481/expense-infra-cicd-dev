@@ -49,9 +49,9 @@ pipeline {
                 }   
             }
         }
-        stage(" Trigger VPC"){
+        stage("Trigger VPC"){
             when {
-                expression {${parms.ACTION} == 'destroy' }  
+                expression {${params.ACTION} == 'destroy' }  
             }
             steps{
                 build job: '00-vpc', parameters: [string(name: 'ACTION', value: 'destroy')]
