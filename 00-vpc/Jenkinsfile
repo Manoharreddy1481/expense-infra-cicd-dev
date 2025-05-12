@@ -4,7 +4,7 @@ pipeline {
     }
     options{
         timeout(time: 30, unit: 'MINUTES')
-        disableConcurrentBuilds
+        disableConcurrentBuilds()
     }
 
     // environment{
@@ -23,6 +23,7 @@ pipeline {
                     cd 00-vpc
                     terraform init -reconfigure
                     terraform plan -out=tfplan
+
                     """
                 }   
             }
@@ -30,17 +31,14 @@ pipeline {
         }
         stage("Test"){
             steps{
-                script{
-
-                }
+                sh "echo this is test"
+                
             }
         
         }
         stage("Deploy"){
             steps{
-                script{
-
-                }
+                sh "echo this is Deploy"
             }
         
         }
