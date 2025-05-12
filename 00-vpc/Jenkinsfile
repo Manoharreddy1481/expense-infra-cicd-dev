@@ -50,6 +50,9 @@ pipeline {
             }
         }
         stage("Trigger SG"){
+            when {
+                expression {${parms.ACTION} == 'apply' }  
+            }
             steps{
                 build job: '10-sg', parameters: [ [ $class : 'StringParameterValue', name: 'ACTION', value: 'apply']], wait: false
             }

@@ -49,7 +49,7 @@ pipeline {
                 }   
             }
         }
-        stage(" Triiger VPC"){
+        stage(" Trigger VPC"){
             when {
                 expression {${parms.ACTION} == 'destroy' }  
             }
