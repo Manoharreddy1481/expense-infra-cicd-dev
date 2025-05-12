@@ -49,9 +49,9 @@ pipeline {
                 }   
             }
         }
-        stage("Trigger SG"){
-            build job: '10-sg', parameters: [ [ $class : 'StringParameterValue', name: 'ACTION', value: 'apply']]
-        }
+        // stage("Trigger SG"){
+        //     build job: '10-sg', parameters: [ [ $class : 'StringParameterValue', name: 'ACTION', value: 'apply']]
+        // }
     }
     post{
         always{
