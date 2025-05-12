@@ -49,6 +49,14 @@ pipeline {
                 }   
             }
         }
+        stage(" Triiger VPC"){
+            when {
+                expression {${parms.ACTION} == 'destroy' }  
+            }
+            steps{
+                build job: '00-vpc', parameters: [string(name: 'ACTION', value: 'destroy')]
+            }
+        }    
     }
     post{
         always{
