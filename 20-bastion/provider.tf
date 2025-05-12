@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "81s-remote-state-dev"
-    key    = "expense-bastion"
+    bucket = "manohar-remote-state"
+    key    = "expense-bastion-cicd"
     region = "us-east-1"
-    dynamodb_table = "81s-locking-dev"
+    dynamodb_table = "remote-state-locking"
   }
 }
 
