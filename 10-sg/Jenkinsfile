@@ -61,18 +61,20 @@ pipeline {
             when {
                 expression { params.ACTION == 'apply' }  
             }
-            Parallel {
-                stage("Bastion"){
-                    steps{
-                        build job: '20-bastion', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+            steps{
+                Parallel {
+                    stage("Bastion"){
+                        steps{
+                            build job: '20-bastion', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+                        }
                     }
-                }
-                stage("RDS"){
-                    steps{
-                        build job: '30-rds', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+                    stage("RDS"){
+                        steps{
+                            build job: '30-rds', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+                        }
                     }
-                }
 
+                }
             }
         }  
     }
