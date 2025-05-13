@@ -6,11 +6,11 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "81s-remote-state-dev"
-    key    = "expense-dev-acm"
+ backend "s3" {
+    bucket = "manohar-remote-state"
+    key    = "expense-acm-cicd"
     region = "us-east-1"
-    dynamodb_table = "81s-locking-dev"
+    dynamodb_table = "remote-state-locking"
   }
 }
 

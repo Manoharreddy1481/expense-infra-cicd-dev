@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "expense" {
-  domain_name       = "*.${var.zone_name}" # *.daws81s.online
+  domain_name       = "*.${var.zone_name}" # *.manohar.fun
   validation_method = "DNS"
 
   tags = merge(
